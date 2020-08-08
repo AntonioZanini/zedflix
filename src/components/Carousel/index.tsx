@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
-import { CarouselContainer, VideoCardList, Title, ExtraLink } from './styles';
+import { CarouselContainer,  Title, ExtraLink } from './styles';
 import VideoCard from './components/VideoCard';
+import Slider, { SliderItem } from './components/Slider';
 
 interface IVideo {
   titulo: string;
@@ -43,23 +44,23 @@ const Carousel : React.FC<IProps> = ({ignoreFirstVideo, category}) => {
           }
         </>
       )}
-      <VideoCardList>
+      <Slider>
         {videos.map((video, index) => {
           if (ignoreFirstVideo && index === 0) {
             return null;
           }
 
           return (
-            <li key={video.titulo}>
+            <SliderItem key={video.titulo}>
               <VideoCard
                 videoTitle={video.titulo}
                 videoURL={video.url}
                 categoryColor={categoryColor}
               />
-            </li>
+            </SliderItem>
           );
         })}
-      </VideoCardList>
+      </Slider>
     </CarouselContainer>
   );
 }
