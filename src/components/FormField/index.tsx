@@ -1,30 +1,37 @@
 import React from 'react';
 
 interface IProps {
-    label: string; 
+    label: string;
     type: string;
     name:string;
-    value:string; 
+    value:string;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const FormField: React.FC<IProps> = function ({
-    label, 
-    type, 
-    name, 
-    value, 
-    onChange}) {
-    return (
-        <div>
-            <label>
-                {label}
-                <input type={type} 
-                    value={ value }
-                    name={ name }
-                    onChange={ onChange }/>
-            </label>
-        </div>
-    );
-}
+const FormField: React.FC<IProps> = ({
+  label,
+  type,
+  name,
+  value,
+  onChange,
+} : IProps) => {
+  const fieldId = `id_${name}`;
+  return (
+    <div>
+      <label
+        htmlFor={fieldId}
+      >
+        {label}
+        <input
+          id={fieldId}
+          type={type}
+          value={value}
+          name={name}
+          onChange={onChange}
+        />
+      </label>
+    </div>
+  );
+};
 
 export default FormField;

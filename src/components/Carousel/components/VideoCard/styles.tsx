@@ -4,7 +4,7 @@ interface IVideoCardContainerProps {
   url: string;
 }
 
-export const VideoCardContainer = styled.a<IVideoCardContainerProps>`
+const VideoCardContainer = styled.a<IVideoCardContainerProps>`
   border: 2px solid;
   border-radius: 4px;
   text-decoration: none;
@@ -33,3 +33,5 @@ export const VideoCardContainer = styled.a<IVideoCardContainerProps>`
     margin-left: 20px;
   }
 `;
+
+export default VideoCardContainer;

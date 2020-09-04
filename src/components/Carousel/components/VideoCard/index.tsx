@@ -1,5 +1,5 @@
 import React from 'react';
-import { VideoCardContainer } from './styles';
+import VideoCardContainer from './styles';
 
 function getYouTubeId(youtubeURL: string) {
   return youtubeURL
@@ -8,7 +8,6 @@ function getYouTubeId(youtubeURL: string) {
       '$7',
     );
 }
-
 
 interface IVideoCard {
   videoTitle: string;

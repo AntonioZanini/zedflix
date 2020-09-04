@@ -38,8 +38,11 @@ export const SliderItem = styled.li`
   }
 `;
 
+interface IProp {
+  children: React.ReactNode
+}
 
-const Slider : React.FC = ({ children }) => (
+const Slider : React.FC<IProp> = ({ children } : IProp) => (
   <Container>
     <SlickSlider {...{
       dots: false,
@@ -55,4 +58,4 @@ const Slider : React.FC = ({ children }) => (
   </Container>
 );
 
-export default Slider; 
+export default Slider;

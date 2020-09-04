@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 import React, { memo } from 'react';
-import { CarouselContainer,  Title, ExtraLink } from './styles';
+import { CarouselContainer, Title, ExtraLink } from './styles';
 import VideoCard from './components/VideoCard';
 import Slider, { SliderItem } from './components/Slider';
 
@@ -16,20 +17,20 @@ interface ILink {
 export interface ICategory {
   titulo: string;
   cor: string;
-  link_extra: ILink;
+  linkExtra: ILink;
   videos: Array<IVideo>;
-};
+}
 
 interface IProps {
   ignoreFirstVideo?: any;
   category: ICategory;
-};
+}
 
-const Carousel : React.FC<IProps> = ({ignoreFirstVideo, category}) => {
+const Carousel : React.FC<IProps> = ({ ignoreFirstVideo, category }) => {
   const categoryTitle = category.titulo;
   const categoryColor = category.cor;
-  const categoryExtraLink = category.link_extra;
-  const videos = category.videos;
+  const categoryExtraLink = category.linkExtra;
+  const { videos } = category;
   return (
     <CarouselContainer>
       {categoryTitle && (
@@ -37,11 +38,12 @@ const Carousel : React.FC<IProps> = ({ignoreFirstVideo, category}) => {
           <Title style={{ backgroundColor: categoryColor || 'red' }}>
             {categoryTitle}
           </Title>
-          {categoryExtraLink && 
+          {categoryExtraLink
+            && (
             <ExtraLink href={categoryExtraLink.url} target="_blank">
-              {categoryExtraLink.text}  
+              {categoryExtraLink.text}
             </ExtraLink>
-          }
+            )}
         </>
       )}
       <Slider>
@@ -63,6 +65,6 @@ const Carousel : React.FC<IProps> = ({ignoreFirstVideo, category}) => {
       </Slider>
     </CarouselContainer>
   );
-}
+};
 
 export default memo(Carousel);

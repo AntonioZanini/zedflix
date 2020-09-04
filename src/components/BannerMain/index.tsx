@@ -19,8 +19,8 @@ interface IBanner {
 const BannerMain: React.FC<IBanner> = ({
   videoTitle,
   videoDescription,
-  url
-}) => {
+  url,
+} : IBanner) => {
   const youTubeID = getYouTubeId(url);
   const bgUrl = `https://img.youtube.com/vi/${youTubeID}/maxresdefault.jpg`;
 
@@ -48,6 +48,6 @@ const BannerMain: React.FC<IBanner> = ({
       </ContentAreaContainer>
     </BannerMainContainer>
   );
-}
+};
 
 export default memo(BannerMain);
